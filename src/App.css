@@ -12,3 +12,59 @@ body {
   line-height: 1.5;
 }
 
+img {
+  max-width: 100%;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+label {
+  font-weight: 500;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+button {
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.primary-btn {
+  background-color: rgb(100, 100, 255);
+  color: #fff;
+  font-weight: 500;
+  border: none;
+}
+
+.secondary-btn {
+  background-color: #c5c5c5;
+  color: #000;
+  font-weight: 500;
+  border: none;
+}
+
+.primary-btn:hover, 
+.secondary-btn:hover {
+  opacity: 0.9;
+}
+
+.secondary-btn:hover {
+  color: #000;
+}
+
+.primary-btn:hover {
+  color: #fff;
+}

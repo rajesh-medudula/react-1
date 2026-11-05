@@ -1,0 +1,33 @@
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__title {
+  font-weight: 600;
+}
+
+.product__content {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: auto;
+}
+
+.product__add {
+  margin-block: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  background-color: #000;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.product__add:hover {
+  opacity: 0.8;
+}
+
+.product__add:disabled {
+  cursor: not-allowed;
+}
