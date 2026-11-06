@@ -19,23 +19,23 @@
   color: rgb(85, 85, 85);
 }
 
-.header__link:nth-child(3) {
+.header__actions {
   margin-left: auto;
 }
 
-.header__link:nth-child(3), 
+.header__btn-secondary, 
 .header__link:nth-child(4) {
   background-color: #c5c5c5;
   padding: 5px 10px;
   border-radius: 5px;
 }
 
-.header__link:nth-child(3):hover, 
+.header__btn-secondary:hover, 
 .header__link:nth-child(4):hover {
   opacity: 0.9;
 }
 
-.header__link:nth-child(3):hover {
+.header__btn-secondary:hover {
   color: #000;
 }
 

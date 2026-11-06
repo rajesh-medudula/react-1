@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../AuthContext";
+import { useAuth } from "../context/auth-context";
 import { useNavigate } from "react-router-dom";
 
 import "./Auth.css";
-import { useState } from "react";
 
 export const Auth = () => {
   const {
@@ -11,23 +10,25 @@ export const Auth = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [authState, setAuthState] = useState("signup");
-  const [user, setUser] = useState({ email: "", pass: "", isAuth: false });
-  const [status, setStatus] = useState(null);
+
+  const {authState, setAuthState, user, setUser, status, setStatus} = useAuth();
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    setUser({ email: data.email, pass: data.password, isAuth: true });
+   
     console.log(user.email, user.pass);
 
     if (data.email && data.password) {
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const newUser = {email: data.email, pass: data.password}
       
-      if (users.find(user => user.email === data.email) && authState === "login") {
+      if (users.find(user => user.email === data.email && user.pass === data.password) && authState === "login" ) {
         localStorage.setItem("currentEmail", JSON.stringify(data.email));
+         setUser({ email: data.email, pass: data.password, isAuth: true });
         navigate("/");
+      } else if (users.find(user => user.email === data.email && user.pass !== data.password) && authState === "login") {
+        setStatus({message: "Invalid Email or Password"})
       } else if (users.find(user => user.email === data.email) && authState === "signup") {
         setStatus({message: "Email already exist"});
       } else if (!users.find(user => user.email === data.email) && authState === "login") {
@@ -36,6 +37,7 @@ export const Auth = () => {
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("currentEmail", JSON.stringify(data.email));
+         setUser({ email: data.email, pass: data.password, isAuth: true });
         navigate("/");
       }
     }
@@ -45,8 +47,9 @@ export const Auth = () => {
     authState === "signup" ? setAuthState("login") : setAuthState("signup");
   };
 
+  
+
   return (
-    <AuthContext.Provider value={{user}}>
       <section>
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
           <h1>{authState === "signup" ? "Sign Up" : "Login"}</h1>
@@ -108,6 +111,5 @@ export const Auth = () => {
           )}
         </div>
       </section>
-    </AuthContext.Provider>
   );
 };

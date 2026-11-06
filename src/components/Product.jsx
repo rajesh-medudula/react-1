@@ -17,9 +17,9 @@ const addToCart = () => {
   setCartItems((cartItems) => {
     const productMatch = cartItems.find((cartProduct) => cartProduct.id === product.id);
     if (productMatch) {
-      return cartItems.map((item) => item.id === productMatch.id ? {...item, quantity: item.quantity + 1} : item);
+      return cartItems.map((item) => item.id === productMatch.id ? {...item, quantity: item.quantity + 1, stock: item.stock - 1} : item);
     } else {
-      return [...cartItems, newProduct];
+      return [...cartItems, {...newProduct, stock: newProduct.stock - 1}];
     }
   });
 }
