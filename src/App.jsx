@@ -2,9 +2,10 @@ import { Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/CartContext";
 
 import { Navbar } from "./components/Navbar";
-import { Home } from "./components/Home";
-import { Cart } from "./components/Cart";
-import { Auth } from "./components/Auth";
+import { Home } from "./pages/Home";
+import { Cart } from "./pages/Cart";
+import { Auth } from "./pages/Auth";
+import { ProductDetails } from "./pages/ProductDetails";
 
 import "./App.css";
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/auth" element={<Auth />}></Route>
+            <Route path="/products/:id" element={<ProductDetails />}></Route>
           </Routes>
         </div>
       </CartContextProvider>

@@ -55,3 +55,20 @@
   opacity: 0.9;
   color: #fff;
 }
+
+.header__link--cart {
+ display: flex;
+ gap: 3px;  
+}
+
+.header__cart-length {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: red;
+  color: #fff;
+}

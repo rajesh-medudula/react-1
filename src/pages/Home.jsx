@@ -2,7 +2,7 @@ import "./Home.css";
 
 
 import { getProducts } from "../data/products";
-import { Product } from "./Product";
+import { Product } from "../components/Product";
 import { useCart } from "../context/cart-context";
 
 

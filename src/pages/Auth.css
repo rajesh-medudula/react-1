@@ -1,5 +1,9 @@
+.auth {
+  margin: auto;
+  max-width: 300px;
+}
+
 .auth-form {
-  min-width: 100%;
   min-width: 250px;
   display: flex;
   flex-direction: column;
@@ -28,6 +32,10 @@
   height: 1px;
   background-color: #000;
   margin-block: 1rem;
+}
+
+.auth-secondary {
+  text-align: center;
 }
 
 .auth-secondary span {

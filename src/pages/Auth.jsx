@@ -50,7 +50,7 @@ export const Auth = () => {
   
 
   return (
-      <section>
+      <section className="auth">
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
           <h1>{authState === "signup" ? "Sign Up" : "Login"}</h1>
           <div className="auth-form__input-wrapper">

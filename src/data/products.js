@@ -135,3 +135,7 @@ const products = [
 export const getProducts = () => {
   return products;
 }
+
+export const getProductById = (id) => {
+  return products.find((item) => item.id === Number(id));
+}
