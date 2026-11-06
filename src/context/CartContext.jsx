@@ -12,6 +12,18 @@ export const CartContextProvider = ({children}) => {
     localStorage.removeItem("cartItems");
   }
 
+  const removeItem = (id) => {
+    const match = cartItems.find((cartItem) => cartItem.id === id);
+    
+    if (match) {
+      setCartItems(() => {
+        return cartItems.filter((item) => item.id !== id);
+      })
+    } else {
+      return;
+    }
+  }
+
   const quantityInc = (product) => {
     if (product.stock <= 0) return;
 
@@ -27,7 +39,7 @@ export const CartContextProvider = ({children}) => {
   }
 
   const quantityDec = (product) => {
-    if (product.quantity <= 0 ) return;
+    if (product.quantity <= 1 ) return;
 
     setCartItems((cartItems) => {
       const match = cartItems.find((cartItem) => cartItem.id === product.id && cartItem);
@@ -50,7 +62,7 @@ export const CartContextProvider = ({children}) => {
   
 
   return (
-    <cartContext.Provider value={{cartItems, setCartItems, totalItems, clearCart, quantityInc, quantityDec}}>
+    <cartContext.Provider value={{cartItems, setCartItems, totalItems, clearCart, quantityInc, quantityDec, removeItem}}>
       {children}
     </cartContext.Provider>
   )

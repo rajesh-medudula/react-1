@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/CartContext";
 
-import { useAuth } from "./context/auth-context";
-
 import { Navbar } from "./components/Navbar";
 import { Home } from "./components/Home";
 import { Cart } from "./components/Cart";
@@ -12,13 +10,11 @@ import "./App.css";
 
 function App() {
 
-const {user} = useAuth();
-
   return (
 
       <CartContextProvider>
         <div>
-          {user.isAuth && <Navbar />}
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/cart" element={<Cart />}></Route>

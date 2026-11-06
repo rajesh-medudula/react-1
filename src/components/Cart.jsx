@@ -13,6 +13,7 @@ export const Cart = () => {
 
   return (
     <section className="cart">
+      <h1>Checkout</h1>
       <div className="cart__content">
         <button className="cart__clear-btn" onClick={clearCart}>Clear Cart</button>
         <div className="cart__products">
