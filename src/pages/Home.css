@@ -1,0 +1,15 @@
+.products {
+  justify-content: start;
+  padding: 10px;
+}
+
+.products > h1 {
+  margin-right: auto;
+}
+
+.products__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}

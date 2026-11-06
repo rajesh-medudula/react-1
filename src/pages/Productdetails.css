@@ -1,0 +1,30 @@
+.product-details__container {
+  display: flex;
+  gap: 1rem;
+}
+
+.product-details__title {
+  font-weight: 600;
+}
+
+.product-details__content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 3px;
+}
+
+.product-details__add-btn {
+  padding: 10px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+}
+
+@media (width <= 700px) {
+  .product-details__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
