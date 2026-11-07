@@ -11,13 +11,11 @@ export const Auth = () => {
     formState: { errors },
   } = useForm();
 
-  const {authState, setAuthState, user, setUser, status, setStatus} = useAuth();
+  const {authState, setAuthState, setUser, status, setStatus} = useAuth();
 
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-   
-    console.log(user.email, user.pass);
 
     if (data.email && data.password) {
       const users = JSON.parse(localStorage.getItem("users")) || [];

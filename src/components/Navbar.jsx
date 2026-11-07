@@ -22,22 +22,22 @@ export const Navbar = () => {
       {user.isAuth ? (
         <div className="header__actions">
           <span>Holla, {user.email}</span>
-          <button
+          <Link to={"/auth"}
             className="header__link header__btn-secondary"
             onClick={logout}
           >
             Logout
-          </button>
+          </Link>
         </div>
       ) : (
         <div className="header__actions">
-          <Link
+          <Link to={"/auth"}
             className="header__link header__btn-secondary"
             onClick={authLoginNav}
           >
             Login
           </Link>
-          <Link
+          <Link to={"/auth"}
             className="header__link header__btn-primary"
             onClick={authSignUpNav}
           >

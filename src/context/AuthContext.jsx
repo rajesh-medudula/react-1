@@ -1,12 +1,10 @@
 import { AuthContext } from "./auth-context";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const AuthContextProvider = ({children}) => {
 
   const [authState, setAuthState] = useState("signup");
   const [status, setStatus] = useState(null);
-  const navigate = useNavigate();
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("savedUser");
 
@@ -18,19 +16,15 @@ export const AuthContextProvider = ({children}) => {
       setUser({ email: "", pass: "", isAuth: false });
       setAuthState("login");
       setStatus(null);
-
-      navigate("/auth");
     }
   }
   
   const authLoginNav = () => {
     setAuthState("login");
-    navigate("/auth");
   }
 
   const authSignUpNav = () => {
     setAuthState("signup");
-    navigate("/auth");
   }
 
   useEffect(() => {
